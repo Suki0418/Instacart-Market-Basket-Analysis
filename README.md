@@ -3,7 +3,9 @@
 
 # 1. Dataset Overview
  1.1 Dataset Link: https://www.kaggle.com/competitions/instacart-market-basket-analysis 
+ 
  1.2 Dataset Descriptions: An anonymized relational dataset of 3M+ grocery orders from 200,000+ Instacart users, detailing 4–100 orders per user with product sequences and order timing information.
+ 
  1.3 File Descriptions: 
  
  (1) aisles.csv
