@@ -48,4 +48,28 @@
  - department_id
  (6) sample_submission.xlsx (for the Kaggle competition goal: to predict products likely to be reordered)
  - order_id
- - products: product_id(s)  
+ - products: product_id(s)
+
+# 2. Practical Workflow 
+2.1 Identify Frequent Product Combinations 
+
+(1) Steps:
+
+ a. Use the prior dataset for association rule mining (e.g., Apriori algorithm). 
+ 
+ https://365datascience.com/tutorials/python-tutorials/market-basket-analysis/
+ 
+ b. Identify frequently bought item sets with metrics like:
+ - Support: Proportion of transactions containing an item set. Support(item) = Transactions comprising the item / Total transactions
+ A high support value indicates that the item is present in most purchases, therefore marketers should focus on it more.
+ - Confidence: Likelihood of buying item B if item A is bought.
+ Confidence (Bread -> Milk) = Transactions comprising bread and milk / Transactions comprising bread 
+ 👉 If Confidence (Bread -> Milk) = ¾ = 0.75, 75% of the customers who bought bread also purchased milk.
+ - Lift: Measure of the strength of the association between items.
+ refers to the increase in the ratio of the sale of milk when you sell bread:
+ Lift = Confidence (Bread -> Milk) / Support(Bread) = 0.75/1 = 1.3. 👉 Customers are 1.3 times more likely to buy milk if you also sell bread.
+ c. Highlight top product combinations (e.g., “milk and bread are often bought together”).
+
+(2) Deliverables:
+- List of high-lift item pairs or groups.
+- Insights into customer purchasing patterns.
