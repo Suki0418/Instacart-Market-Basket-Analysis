@@ -51,25 +51,49 @@
  - products: product_id(s)
 
 # 2. Practical Workflow 
-2.1 Identify Frequent Product Combinations 
 
-(1) Steps:
-
- a. Use the prior dataset for association rule mining (e.g., Apriori algorithm). 
+**2.1 Identify Frequent Product Combinations** <br>
+(1) Steps: <br>
+ a. Use the prior dataset for association rule mining (e.g., Apriori algorithm). <br> 
+ https://365datascience.com/tutorials/python-tutorials/market-basket-analysis/ <br> 
  
- https://365datascience.com/tutorials/python-tutorials/market-basket-analysis/
- 
- b. Identify frequently bought item sets with metrics like:
- - Support: Proportion of transactions containing an item set. Support(item) = Transactions comprising the item / Total transactions
- A high support value indicates that the item is present in most purchases, therefore marketers should focus on it more.
+ b. Identify frequently bought item sets with metrics like: <br> 
+ - Support: Proportion of transactions containing an item set. <br>
+   - Support(item) = Transactions comprising the item / Total transactions <br>
+   - A high support value indicates that the item is present in most purchases, therefore marketers should focus on it more.
  - Confidence: Likelihood of buying item B if item A is bought.
- Confidence (Bread -> Milk) = Transactions comprising bread and milk / Transactions comprising bread 
- 👉 If Confidence (Bread -> Milk) = ¾ = 0.75, 75% of the customers who bought bread also purchased milk.
+   - Confidence (Bread -> Milk) = Transactions comprising bread and milk / Transactions comprising bread 
+   - If Confidence (Bread -> Milk) = ¾ = 0.75, 75% of the customers who bought bread also purchased milk.
  - Lift: Measure of the strength of the association between items.
- refers to the increase in the ratio of the sale of milk when you sell bread:
- Lift = Confidence (Bread -> Milk) / Support(Bread) = 0.75/1 = 1.3. 👉 Customers are 1.3 times more likely to buy milk if you also sell bread.
+   - Lift = Confidence (Bread -> Milk) / Support(Bread) = 0.75/1 = 1.3.
+   - It refers to the increase in the ratio of the sale of milk when you sell bread. Customers are 1.3 times more likely to buy milk if you also sell bread.
+ 
  c. Highlight top product combinations (e.g., “milk and bread are often bought together”).
 
 (2) Deliverables:
 - List of high-lift item pairs or groups.
 - Insights into customer purchasing patterns.
+
+**2.2 Feature Engineering** <br>
+(1) Steps: Create customer, product, and user-product interaction features using prior.
+
+a. Customer-level Features:
+  - Total number of orders
+  - Average days between orders (days_since_prior_order)
+  - Most common order times (order_dow - day of week, order_hour_of_day - hour of day).
+  - Frequently purchased products and categories.
+
+b. Product-level Features:
+ - Total purchase frequency across all users.
+ - Reorder rate (percentage of times a product is reordered).
+ - Popularity rank (e.g., 1st, 2nd most purchased product).
+
+c. User-Product Interaction Features:
+- Number of times a user has ordered a specific product.
+- Last order position of the product for this user.
+- Average add-to-cart position for a product by the user.
+- Whether the product was in the last order.
+  
+(2) Join these features to the train and test datasets.
+
+(3) Incorporate findings from market basket analysis (e.g., key product pairs) into features for collaborative filtering or association-based recommendations.
