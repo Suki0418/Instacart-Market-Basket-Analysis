@@ -75,13 +75,13 @@
 - Insights into customer purchasing patterns.
 
 **2.2 Feature Engineering** <br>
-(1) Steps: Create customer, product, and user-product interaction features using prior.
+(1) Steps: Create customer, product, and user-product interaction features using the prior dataset.
 
 a. Customer-level Features:
   - Total number of orders
   - Average days between orders (days_since_prior_order)
   - Most common order times (order_dow - day of week, order_hour_of_day - hour of day).
-  - Frequently purchased products and categories.
+  - Frequently purchased products.
 
 b. Product-level Features:
  - Total purchase frequency across all users.
